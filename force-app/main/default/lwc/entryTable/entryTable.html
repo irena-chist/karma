@@ -1,0 +1,12 @@
+<template>
+    <div style="height: 200px;">
+        <template if:true={entryTable}>
+            <lightning-datatable class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped"
+                    key-field="id"
+                    data={entryTable}
+                    columns={columns}
+                    hide-checkbox-column="true">
+            </lightning-datatable>
+        </template>
+    </div>
+</template>

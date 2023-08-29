@@ -1,0 +1,46 @@
+body {
+  	margin: 0;
+} 
+.wrapper-window {
+  	height: 100vh;
+}
+.wrapper {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+.contact-list {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+.content {
+    display: flex;
+    flex: 1;
+    background: #999;
+    color: #000; 
+}
+.columns{
+    display: flex;
+    flex:1;
+    overflow-y: scroll;
+}
+.main{
+    flex: 1;
+    order: 2;
+    background: #eee;
+}
+.sidebar-first{
+    width: 20%;
+    background: #ccc;
+    order: 1;
+}
+.sidebar-second{ 
+    width: 80%;
+    order: 3;
+    background: #ddd;
+}
+.entry-table {
+    height: 40vh;
+}

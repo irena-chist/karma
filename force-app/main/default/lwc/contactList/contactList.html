@@ -1,0 +1,50 @@
+<template>
+    <template if:true={contacts.data}>
+        <lightning-layout multiple-rows="true" pull-to-boundary="small" oncontactview={handleContactView}>
+            <div class="slds-box contact-block" >
+                <lightning-input type="search"
+                    onchange={handleSearchTermChange}
+                    variant="label-hidden"
+                    class="slds-var-m-bottom_small"
+                    label="Search"
+                    placeholder="Search people"
+                    value={searchTerm}>
+                </lightning-input>
+                <template for:each={contacts.data} for:item="contact">
+                      <span key={contact.id}>
+                        <div class="slds-col">
+                            <lightning-button 
+                            class="contactButton"
+                            label={contact.Name}
+                            icon-name="utility:heart" 
+                            icon-position="right"
+                            value={contact.Id}
+                            onitemclick={handleItemClick}
+                            stretch>
+                            </lightning-button>
+                        </div>
+                    </span>
+                </template>
+                <template if:true={selectedContact}>
+                    <div>
+                        <lightning-record-view-form
+                            object-api-name="Contact"
+                            record-id={selectedContact.Id}>
+                            <lightning-output-field field-name="Name"></lightning-output-field>
+                        </lightning-record-view-form>
+                    </div>
+                </template>
+            </div> 
+        </lightning-layout>
+        <template if:false={hasResults}>
+            <div class="slds-align_absolute-center slds-var-m-vertical_small">
+                This is beary disturbing, we did not find results...
+            </div>
+        </template>
+    </template>
+    <template if:true={contacts.error}>
+        <div class="slds-text-color_error">
+            An error occurred while loading the contact list
+        </div>
+    </template>
+</template>

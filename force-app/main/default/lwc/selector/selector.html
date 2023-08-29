@@ -1,0 +1,17 @@
+<template>
+  <div class="wrapper-window">
+    <div class="wrapper">
+      <section class="content">
+        <div class="columns">
+          <main class="main" >
+            <c-contact-list oncontactselected={handleContactSelected} class="contact-list"></c-contact-list>
+          </main>
+          <aside class="sidebar-second">
+            <c-contact-item contact-id={selectedContactId}></c-contact-item>
+          </aside>
+        </div>
+      </section>
+    </div>
+    <c-entry-table class="entry-table"></c-entry-table>
+  </div>
+</template>
