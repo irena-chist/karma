@@ -6,18 +6,13 @@ body {
 }
 .wrapper {
     height: 60vh;
-    display: flex;
-    flex-direction: column;
     overflow: hidden; 
 }
 .contact-list {
-    height: 100%;
-    width: 100%;
+    display: block;
     overflow-y: scroll;
 }
 .content {
-    display: flex;
-    flex: 1;
     background: #999;
     color: #000; 
 }
@@ -27,20 +22,14 @@ body {
     overflow-y: scroll;
 }
 .main{
-    flex: 1;
-    order: 2;
+    width: 25vh;
     background: #eee;
 }
-.sidebar-first{
-    width: 20%;
-    background: #ccc;
-    order: 1;
-}
+
 .sidebar-second{ 
-    width: 80%;
-    order: 3;
+    width: 90%;
     background: #ddd;
 }
 .entry-table {
-    height: 40vh;
+    height: 45vh;
 }

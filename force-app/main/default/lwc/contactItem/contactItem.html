@@ -1,48 +1,22 @@
 <template>
-<!-- contactId -->
-	<lightning-button 
-		class="contactButton"
-		label={contactId}
-		icon-name="utility:heart" 
-		icon-position="right"
-		value={contactId}
-		onclick={handleContactSelected}>
-	</lightning-button>
-	<lightning-record-view-form
-		object-api-name={Contact}
-		record-id={recordId}>
-    	<lightning-output-field field-name={nameField}> </lightning-output-field>
-	</lightning-record-view-form>
-	
-<!-- create Karma Entry -->
 	<lightning-card title="Create Karma Entry">
-		<lightning-record-form
+		<lightning-record-edit-form
 			object-api-name={objectApiName}
-			fields={fields}
 			onsuccess={handleSuccess}
-			onerror={handleError}>
-	<!-- 		<div class="slds-p-around_medium">
-				<lightning-input
-					label="Person"
-					field-name={PERSON_FIELD}
-					required
-				></lightning-input>
-				
-				<lightning-radio-group
-					label="Value"
-					field-name={POINTS_FIELD}
-					options={pointsOptions}
-					required
-				></lightning-radio-group>
-				
-				<lightning-textarea
-					label="Text Comment"
-					field-name={COMMENT_FIELD}
-				></lightning-textarea>
-				
-				<lightning-button type="submit" label="Create Karma Entry">
-				</lightning-button> -->
-			</div>
-		</lightning-record-form>
+			onerror={handleError}
+			record-id={karmaId}>
+			<lightning-input-field field-name={personField} value={recordId}> </lightning-input-field>
+			<lightning-input-field field-name={typeField}> </lightning-input-field>
+			<lightning-input-field field-name={pointsField}> </lightning-input-field>
+			<lightning-input-field field-name={commentField}> </lightning-input-field>
+			<lightning-button
+			class="slds-m-top_small"
+			type="submit"
+			label="Create new">
+			</lightning-button>
+		</lightning-record-edit-form>
 	</lightning-card>
 </template>
+
+
+

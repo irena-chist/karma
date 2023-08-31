@@ -1,28 +1,23 @@
-import { LightningElement, track, wire} from 'lwc';
-import { NavigationMixin } from 'lightning/navigation';
+import { LightningElement, wire} from 'lwc';
 import getContacts from '@salesforce/apex/contactController.getContacts';
 import searchContacts from '@salesforce/apex/contactController.searchContacts';
-export default class ContactList extends LightningElement {
-	contacts;
-    selectedContact; 
-/* 	constructor() {
-		super();
-		this.template.addEventListener("notification", this.handleItemClick);
-	  }
-	  handleItemClick = () => {}; */
-    @wire(getContacts)
-	handleItemClick(contactId) {
+import { publish, MessageContext } from 'lightning/messageService';
+import ContactSelected from '@salesforce/messageChannel/Contact_Selected__c';
 
-		const event = new CustomEvent('contactselected', {
-			detail: contactId
-		});
-		this.dispatchEvent(event);
-		console.log('Selected contact id:',contactId);
+export default class ContactList extends LightningElement {
+
+    @wire(getContacts) contacts;
+	@wire(MessageContext)
+    messageContext;
+
+	handleItemClick(event) {
+        const payload = {contactId: event.target.value };
+		console.log("payload" + JSON.stringify(payload))
+		publish(this.messageContext, ContactSelected, payload);
 	}
-     @track contactList;
 
 //search
-     searchTerm = '';
+    searchTerm = '';
 	@wire(searchContacts, {searchTerm: '$searchTerm'})
 	contacts;
 

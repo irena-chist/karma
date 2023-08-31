@@ -8,5 +8,8 @@
                     hide-checkbox-column="true">
             </lightning-datatable>
         </template>
+        <template if:false={entryTable}>
+            Table disabled
+        </template>
     </div>
 </template>

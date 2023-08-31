@@ -1,5 +1,5 @@
 public with sharing class getRecordDataController {
-    @AuraEnabled()
+    @AuraEnabled(cacheable=true)
     public static List<jetbikarma__Karma_Entry__c> getEntryTable() {
         return [
             SELECT Id, Name, jetbikarma__Value__c, 	jetbikarma__Person__c, jetbikarma__Person__r.Name, jetbikarma__Text_Comment__c,

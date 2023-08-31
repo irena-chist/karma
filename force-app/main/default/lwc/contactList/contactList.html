@@ -19,20 +19,11 @@
                             icon-name="utility:heart" 
                             icon-position="right"
                             value={contact.Id}
-                            onitemclick={handleItemClick}
+                            onclick={handleItemClick}
                             stretch>
                             </lightning-button>
                         </div>
                     </span>
-                </template>
-                <template if:true={selectedContact}>
-                    <div>
-                        <lightning-record-view-form
-                            object-api-name="Contact"
-                            record-id={selectedContact.Id}>
-                            <lightning-output-field field-name="Name"></lightning-output-field>
-                        </lightning-record-view-form>
-                    </div>
                 </template>
             </div> 
         </lightning-layout>
